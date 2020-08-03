@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 
 import com.example.myfirstapplication.R;
@@ -35,18 +36,24 @@ public class MainActivity extends AppCompatActivity {
 
         IUserRepository repo = RepoFactory.getUserRepository(this);
 
-//        repo.insert(new User(0, "Kilo", "Sandy"));
 
         UserViewModel uvm = ViewModelProviders.of(this).get(UserViewModel.class);
+
+        Log.i(TAG, "========================================================================================================");
+        Log.i(TAG, "Test en cours");
 
         LiveData<List<User>> observer = repo.get();
         observer.observe(this, new Observer<List<User>>() {
             @Override
             public void onChanged(List<User> users) {
                 for (User user : users) {
-                    Log.d(TAG, user.toString());
+                    Log.i(TAG, user.toString());
                 }
             }
         });
+
+        repo.insert(new User(0, "Kilo", "Sandy"));
+        SystemClock.sleep(5000);
+        repo.insert(new User(0, "Second", "Milly"));
     }
 }

@@ -14,7 +14,7 @@ import java.util.List;
 
 public class UserViewModel extends AndroidViewModel {
 
-    IUserRepository repo;
+    private IUserRepository repo;
 
     /**
      * we get only one observer for all the activities
@@ -29,5 +29,21 @@ public class UserViewModel extends AndroidViewModel {
 
     public LiveData<List<User>> get(){
         return observer;
+    }
+
+    void insert(User user){
+        repo.insert(user);
+    }
+
+    void update(User user){
+        repo.update(user);
+    }
+
+    void delete(User user){
+        repo.delete(user);
+    }
+
+    void delete(){
+        repo.delete();
     }
 }
