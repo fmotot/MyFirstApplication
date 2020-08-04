@@ -16,7 +16,6 @@ import java.util.List;
 public class UserDBRepository implements IUserRepository {
 
     private UserDAO userDAO;
-    private List<User> listUser = null;
 
     public UserDBRepository(Context context){
         AppDatabase db = AppDatabase.getInstance(context);
