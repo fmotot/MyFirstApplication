@@ -36,6 +36,6 @@ public class UserAdapter extends ArrayAdapter<User> {
         tvLastName.setText(getItem(position).getLastName());
 
 
-        return super.getView(position, convertView, parent);
+        return userLine;
     }
 }
