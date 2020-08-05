@@ -4,6 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.DemoIntentActivity">
+    tools:context=".activity.DemoIntentActivity"
+
+    android:background="#FFB700">
+
+    <Button
+        android:id="@+id/btn_demo1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        android:text="MainActivity"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+
+        android:onClick="onClickMainActivity"
+        />
+
+    <Button
+        android:id="@+id/btn_demo2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@id/btn_demo1"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        android:text="Inserer un utilisateur"
+        android:textStyle="italic"
+        android:layout_margin="10dp"
+
+        android:onClick="onClickUserInsert"
+        />
+
+    <Button
+        android:id="@+id/btn_demo3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@id/btn_demo2"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        android:text="Liste des utilisateurs"
+        android:textColor="@android:color/holo_purple"
+        android:background="@android:color/holo_blue_light"
+        android:layout_margin="10dp"
+
+        android:onClick="onClickUserList"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
