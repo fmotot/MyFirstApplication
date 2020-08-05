@@ -8,7 +8,10 @@ import androidx.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.myfirstapplication.R;
 import com.example.myfirstapplication.activity.adapter.UserAdapter;
@@ -19,11 +22,22 @@ import java.util.List;
 
 public class UserListActivity extends AppCompatActivity {
 
+    private ListView list = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i("===================================", "onCreate");
         setContentView(R.layout.activity_user_list);
+
+        list = findViewById(R.id.user_list);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(UserListActivity.this, "Position " + i, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override
@@ -37,12 +51,13 @@ public class UserListActivity extends AppCompatActivity {
         observer.observe(this, new Observer<List<User>>() {
             @Override
             public void onChanged(List<User> users) {
-                ListView list = findViewById(R.id.user_list);
 
                 UserAdapter adapter = new UserAdapter(UserListActivity.this, R.layout.style_user_list, users);
                 list.setAdapter(adapter);
             }
         });
+
+
     }
 
     @Override

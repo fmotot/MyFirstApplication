@@ -10,6 +10,9 @@ import com.example.myfirstapplication.R;
 
 public class DemoIntentActivity extends AppCompatActivity {
 
+    public static final String KEY_WOLOLO = "wololo";
+    public static final String KEY_WALALA = "walala";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +26,8 @@ public class DemoIntentActivity extends AppCompatActivity {
 
     public void onClickUserInsert(View view) {
         Intent intent = new Intent(this, InsertUserActivity.class);
+        intent.putExtra(KEY_WOLOLO, 14540);
+        intent.putExtra(KEY_WALALA, "Soliers");
         startActivity(intent);
     }
 
