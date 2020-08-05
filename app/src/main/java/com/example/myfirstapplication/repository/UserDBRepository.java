@@ -41,7 +41,7 @@ public class UserDBRepository implements IUserRepository {
     }
 
     @Override
-    public LiveData<User> get(int id) {
+    public User get(int id) {
         return userDAO.get(id);
     }
 

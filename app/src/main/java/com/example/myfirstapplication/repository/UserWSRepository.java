@@ -18,7 +18,7 @@ public class UserWSRepository implements IUserRepository {
     }
 
     @Override
-    public LiveData<User> get(int id) {
+    public User get(int id) {
         return null;
     }
 

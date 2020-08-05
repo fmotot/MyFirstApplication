@@ -14,7 +14,7 @@ public interface IUserRepository {
 
     LiveData<List<User>> get();
 
-    LiveData<User> get(int id);
+    User get(int id);
 
     void update(User user);
 
