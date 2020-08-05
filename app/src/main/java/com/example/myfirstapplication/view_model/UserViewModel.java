@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.myfirstapplication.bo.User;
 import com.example.myfirstapplication.repository.IUserRepository;
@@ -21,6 +22,8 @@ public class UserViewModel extends AndroidViewModel {
      */
     private LiveData<List<User>> observer = null;
 
+    private LiveData<User> ObserverOne = null;
+
     public UserViewModel(@NonNull Application application) {
         super(application);
         repo = RepoFactory.getUserRepository(application);
@@ -29,6 +32,10 @@ public class UserViewModel extends AndroidViewModel {
 
     public LiveData<List<User>> get(){
         return observer;
+    }
+
+    public LiveData<User> get(int id){
+        return repo.get(id);
     }
 
     void insert(User user){

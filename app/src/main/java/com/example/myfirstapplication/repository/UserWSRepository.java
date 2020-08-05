@@ -1,6 +1,7 @@
 package com.example.myfirstapplication.repository;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.myfirstapplication.bo.User;
 
@@ -18,7 +19,7 @@ public class UserWSRepository implements IUserRepository {
     }
 
     @Override
-    public User get(int id) {
+    public MutableLiveData<User> get(int id) {
         return null;
     }
 

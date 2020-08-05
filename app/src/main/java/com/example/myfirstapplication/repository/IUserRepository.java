@@ -1,6 +1,7 @@
 package com.example.myfirstapplication.repository;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.myfirstapplication.bo.User;
 
@@ -14,7 +15,7 @@ public interface IUserRepository {
 
     LiveData<List<User>> get();
 
-    User get(int id);
+    LiveData<User> get(int id);
 
     void update(User user);
 

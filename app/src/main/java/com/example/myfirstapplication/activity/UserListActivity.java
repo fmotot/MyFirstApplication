@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,6 +23,8 @@ import java.util.List;
 
 public class UserListActivity extends AppCompatActivity {
 
+    public static final String ITEM_ID = "itemId";
+
     private ListView list = null;
 
     @Override
@@ -36,6 +39,11 @@ public class UserListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(UserListActivity.this, "Position " + i, Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(UserListActivity.this, UserActivity.class);
+                intent.putExtra(ITEM_ID, ((User)list.getAdapter().getItem(i)).getId());
+
+                startActivity(intent);
             }
         });
     }
@@ -56,8 +64,6 @@ public class UserListActivity extends AppCompatActivity {
                 list.setAdapter(adapter);
             }
         });
-
-
     }
 
     @Override

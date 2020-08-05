@@ -1,6 +1,7 @@
 package com.example.myfirstapplication.dal;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -27,7 +28,7 @@ public interface UserDAO {
     LiveData<List<User>> get();
 
     @Query("SELECT * FROM User WHERE id = :id")
-    User get(int id);
+    LiveData<User> get(int id);
 
     @Update
     void update(User user);

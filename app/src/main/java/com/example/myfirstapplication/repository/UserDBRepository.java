@@ -1,11 +1,10 @@
 package com.example.myfirstapplication.repository;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.myfirstapplication.bo.User;
 import com.example.myfirstapplication.dal.AppDatabase;
@@ -41,7 +40,7 @@ public class UserDBRepository implements IUserRepository {
     }
 
     @Override
-    public User get(int id) {
+    public LiveData<User> get(int id) {
         return userDAO.get(id);
     }
 
