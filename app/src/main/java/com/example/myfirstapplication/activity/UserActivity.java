@@ -19,11 +19,6 @@ public class UserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
 
         UserViewModel vm = ViewModelProviders.of(this).get(UserViewModel.class);
 
@@ -40,5 +35,11 @@ public class UserActivity extends AppCompatActivity {
                 etLastName.setText(user.getLastName());
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
     }
 }
