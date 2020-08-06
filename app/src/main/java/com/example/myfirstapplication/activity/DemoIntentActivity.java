@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.myfirstapplication.R;
+import com.example.myfirstapplication.bo.User;
 
 public class DemoIntentActivity extends AppCompatActivity {
 
@@ -28,6 +29,10 @@ public class DemoIntentActivity extends AppCompatActivity {
         Intent intent = new Intent(this, InsertUserActivity.class);
         intent.putExtra(KEY_WOLOLO, 14540);
         intent.putExtra(KEY_WALALA, "Soliers");
+
+        User user = new User(0, "Tare", "Gui" );
+
+        intent.putExtra("user", user);
         startActivity(intent);
     }
 

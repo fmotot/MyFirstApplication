@@ -1,5 +1,8 @@
 package com.example.myfirstapplication.bo;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.Relation;
@@ -8,7 +11,7 @@ import androidx.room.Relation;
  * Class application user
  */
 @Entity
-public class User {
+public class User implements Parcelable {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -20,6 +23,24 @@ public class User {
         this.lastName = lastName;
         this.firstName = firstName;
     }
+
+    protected User(Parcel in) {
+        id = in.readInt();
+        lastName = in.readString();
+        firstName = in.readString();
+    }
+
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -52,5 +73,17 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(lastName);
+        parcel.writeString(firstName);
     }
 }

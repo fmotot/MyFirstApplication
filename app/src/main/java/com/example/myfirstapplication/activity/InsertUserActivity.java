@@ -30,6 +30,8 @@ public class InsertUserActivity extends AppCompatActivity {
         int i = intent.getIntExtra(DemoIntentActivity.KEY_WOLOLO, 0);
         String j = intent.getStringExtra(DemoIntentActivity.KEY_WALALA);
 
+        User user = intent.getParcelableExtra("user");
+
         EditText etFirstName = findViewById(R.id.et_firstname);
         etFirstName.setText(j);
 
